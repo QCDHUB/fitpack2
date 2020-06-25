@@ -22,13 +22,13 @@ obs:dy
 #grd:grids-idis
 #grd:grids-pidis
 #grd:grids-sidis
-#grd:grids-dy
+grd:grids-dy
 #grd:grids-dypion
 #grd:grids-jets
 #grd:grids-pjets
 #grd:grids-quasipdf
 #grd:grids-wzrv
-#grd:grids-asym
+#grd:grids-wasym
 #grd:grids-zrap
 
 
