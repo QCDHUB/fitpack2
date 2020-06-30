@@ -11,10 +11,12 @@ def setup():
     repos={}
     repos['core']=[  'analysis'
                     ,'database'
-                    ,'fitlib*'
-                    ,'qcdlib*'
+                    ,'examples'
+                    ,'qcdlib'
                     ,'nuclib'
-                    ,'tools*']
+                    ,'fitlib*'
+                    ,'tools*'
+                  ]
     
     repos['obslib']=[]    
     repos['grids'] =[]    
@@ -83,7 +85,6 @@ def install_grids():
         link='git@github.com:JeffersonLab/%s.git'%(rep)
         subprocess.call(['git','clone',link])
         subprocess.call(['mv',rep,'grids'])
-
 
 def update_core_libs():
     msg='update core'
