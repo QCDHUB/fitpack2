@@ -39,7 +39,7 @@ def print_msg(msg):
 def install_core_libs():
     msg='install core'
     print_msg(msg)
-    account='JeffersonLab'
+    account='QCDHUB'
     if repos['acc']!=None:
         account=repos['acc']
 
@@ -57,7 +57,7 @@ def install_core_libs():
                 print(msg%(r,account))
                 continue
         else:
-            link='git@github.com:JeffersonLab/%s.git'%(rep)
+            link='git@github.com:QCDHUB/%s.git'%(rep)
             subprocess.call(['git','clone',link])
 
 def install_obslib():
@@ -69,7 +69,7 @@ def install_obslib():
         if os.path.exists('obslib/%s'%rep):
             print('%10s already installed'%rep) 
             continue
-        link='git@github.com:JeffersonLab/%s.git'%(rep)
+        link='git@github.com:QCDHUB/%s.git'%(rep)
         subprocess.call(['git','clone',link])
         subprocess.call(['mv',rep,'obslib'])
 
@@ -82,7 +82,7 @@ def install_grids():
         if os.path.exists('grids/%s'%rep):
             print('%10s already installed'%rep) 
             continue
-        link='git@github.com:JeffersonLab/%s.git'%(rep)
+        link='git@github.com:QCDHUB/%s.git'%(rep)
         subprocess.call(['git','clone',link])
         subprocess.call(['mv',rep,'grids'])
 
