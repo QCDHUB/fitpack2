@@ -1,5 +1,5 @@
 #--account
-acc:JeffersonLab
+acc:QCDHUB
 
 #--obslib
 obs:idis
