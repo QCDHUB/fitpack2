@@ -90,40 +90,43 @@ def install_grids():
 def update_core_libs():
     msg='update core'
     print_msg(msg)
+    cwd=os.getcwd()
     for rep in repos['core']:
         r=rep.replace('*','')
         if not os.path.exists(r): continue 
         print('updating %s'%r)
-        subprocess.call(['cd',r],shell=True)
+        os.chdir(r)
         try:
             subprocess.call(['git','pull'])
         except:
             print('ERR: git pull %s failed'%r)
-        subprocess.call(['cd','-'],shell=True)
+        os.chdir(cwd)
 
 def update_obsib():
     msg='update obslib'
     print_msg(msg)
+    cwd=os.getcwd()
     for rep in repos['obslib']:
         print('updating %s'%rep)
-        subprocess.call(['cd','obslib/%s'%rep],shell=True)
+        os.chdir('obslib/%s'%rep)
         try:
             subprocess.call(['git','pull'])
         except:
             print('ERR: git pull %s failed'%rep)
-        subprocess.call(['cd','-'],shell=True)
+        os.chdir(cwd)
 
 def update_grids():
     msg='update grids'
     print_msg(msg)
+    cwd=os.getcwd()
     for rep in repos['grids']:
         print('updating %s'%rep)
-        subprocess.call(['cd','grids/%s'%rep],shell=True)
+        os.chdir('grids/%s'%rep)
         try:
             subprocess.call(['git','pull'])
         except:
             print('ERR: git pull %s failed'%rep)
-        subprocess.call(['cd','-'],shell=True)
+        os.chdir(cwd)
 
 if __name__== "__main__":
 
