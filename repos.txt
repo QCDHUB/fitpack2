@@ -3,7 +3,7 @@ acc:QCDHUB
 
 #--obslib
 obs:idis
-obs:dy
+#obs:dy
 #obs:pidis
 #obs:sia
 #obs:sidis
@@ -22,7 +22,7 @@ obs:dy
 #grd:grids-idis
 #grd:grids-pidis
 #grd:grids-sidis
-grd:grids-dy
+#grd:grids-dy
 #grd:grids-dypion
 #grd:grids-jets
 #grd:grids-pjets
