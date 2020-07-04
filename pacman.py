@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys,os
 import subprocess
+import argparse
 
 def checkdir(path):
     if not os.path.exists(path): 
@@ -127,13 +128,22 @@ def update_grids():
 if __name__== "__main__":
 
     setup()
-    install_core_libs()
-    install_obslib()
-    install_grids()
 
-    update_core_libs()
-    update_obsib()
-    update_grids()
+    ap = argparse.ArgumentParser()
+    ap.add_argument('option', help='install, update',type=str)
+    args = ap.parse_args()
+
+    if args.option=='install':
+
+        install_core_libs()
+        install_obslib()
+        install_grids()
+
+    if args.option=='update':
+
+        update_core_libs()
+        update_obsib()
+        update_grids()
 
 
 
