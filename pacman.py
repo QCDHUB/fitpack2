@@ -130,7 +130,6 @@ def update_grids():
 
 if __name__== "__main__":
 
-
     setup()
 
     ap = argparse.ArgumentParser()
