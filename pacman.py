@@ -3,8 +3,10 @@ import sys,os
 import subprocess
 import argparse
 
+account_0 = 'QCDHUB'
+
 def checkdir(path):
-    if not os.path.exists(path): 
+    if not os.path.exists(path):
         os.makedirs(path)
 
 def setup():
@@ -18,9 +20,9 @@ def setup():
                     ,'fitlib*'
                     ,'tools*'
                   ]
-    
-    repos['obslib']=[]    
-    repos['grids'] =[]    
+
+    repos['obslib']=[]
+    repos['grids'] =[]
     repos['acc']   =None
     L=open('repos.txt').readlines()
     L=[_.strip() for _ in L if _.startswith('#')==False if _.strip()!='']
@@ -40,25 +42,27 @@ def print_msg(msg):
 def install_core_libs():
     msg='install core'
     print_msg(msg)
-    account='QCDHUB'
-    if repos['acc']!=None:
-        account=repos['acc']
+    account = account_0
+    if repos['acc'] != account_0:
+        account = repos['acc']
 
     for rep in repos['core']:
         if os.path.exists(rep.replace('*','') ):
-            print('%10s already installed'%rep) 
+            print('%10s already installed'%rep)
             continue
         if '*' in rep:
             r=rep.replace('*','')
             link='git@github.com:%s/%s.git'%(account,r)
             try:
                 subprocess.call(['git','clone',link])
+                if account != account_0:
+                    subprocess.Popen(['git', 'remote', 'add', 'upstream', link.replace(account, account_0)], cwd = './%s' % r)
             except:
                 msg='ERR: %s not found at github account %s'
                 print(msg%(r,account))
                 continue
         else:
-            link='git@github.com:QCDHUB/%s.git'%(rep)
+            link='git@github.com:%s/%s.git' % (account_0, rep)
             subprocess.call(['git','clone',link])
 
 def install_obslib():
@@ -68,9 +72,9 @@ def install_obslib():
     subprocess.call(['touch','obslib/__init__.py'])
     for rep in repos['obslib']:
         if os.path.exists('obslib/%s'%rep):
-            print('%10s already installed'%rep) 
+            print('%10s already installed'%rep)
             continue
-        link='git@github.com:QCDHUB/%s.git'%(rep)
+        link='git@github.com:%s/%s.git' % (account_0, rep)
         subprocess.call(['git','clone',link])
         subprocess.call(['mv',rep,'obslib'])
 
@@ -81,9 +85,9 @@ def install_grids():
     subprocess.call(['touch','grids/__init__.py'])
     for rep in repos['grids']:
         if os.path.exists('grids/%s'%rep):
-            print('%10s already installed'%rep) 
+            print('%10s already installed'%rep)
             continue
-        link='git@github.com:QCDHUB/%s.git'%(rep)
+        link='git@github.com:%s/%s.git' % (account_0, rep)
         subprocess.call(['git','clone',link])
         subprocess.call(['mv',rep,'grids'])
 
@@ -91,13 +95,18 @@ def update_core_libs():
     msg='update core'
     print_msg(msg)
     cwd=os.getcwd()
+    if repos['acc'] != account_0:
+        pull_upstream = True
     for rep in repos['core']:
         r=rep.replace('*','')
-        if not os.path.exists(r): continue 
+        if not os.path.exists(r): continue
         print('updating %s'%r)
         os.chdir(r)
         try:
-            subprocess.call(['git','pull'])
+            if ('*' in rep) and pull_upstream:
+                subprocess.call(['git', 'pull', 'upstream', 'master'])
+            else:
+                subprocess.call(['git','pull'])
         except:
             print('ERR: git pull %s failed'%r)
         os.chdir(cwd)
