@@ -4,11 +4,7 @@
 
 Visit the link [doc] for installation and tuturials etc. 
 
-[doc]:https://jeffersonlab.github.io/fitpack2/
-
-
-
-
+[doc]:https://qcdhub.github.io/fitpack2/_build/html/index.html
 
 
 
