@@ -1,10 +1,6 @@
 Tutorial
 ========
 
-.. toctree::
-   :hidden:
-
-   self
 
 Short summary
 -------------
