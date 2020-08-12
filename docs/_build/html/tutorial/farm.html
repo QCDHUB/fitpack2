@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,28 +11,30 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Analysis" href="analysis.html" />
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> JAM
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> JAM
           
 
           
@@ -74,6 +75,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -112,6 +114,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -150,7 +153,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="index.html">Tutorial</a> &raquo;</li>
         
@@ -230,30 +233,30 @@ But for testing purposes, use the <cite>input.py</cite> template from
 <div class="section" id="option-1-send-jobs-to-farm-via-farm">
 <h3>option 1: send jobs to farm via farm<a class="headerlink" href="#option-1-send-jobs-to-farm-via-farm" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>As in the test case,  adujust the paths and usernames.</li>
-<li>example:  …</li>
+<li><p>As in the test case,  adujust the paths and usernames.</p></li>
+<li><p>example:  …</p></li>
 </ul>
 </div>
 <div class="section" id="option-2-send-jobs-to-farm-via-sfarm-special-permissions-are-needed">
 <h3>option 2: send jobs to farm via sfarm (special permissions are needed)<a class="headerlink" href="#option-2-send-jobs-to-farm-via-sfarm-special-permissions-are-needed" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p class="first">Check that the setup works</p>
+<li><p>Check that the setup works</p>
 <blockquote>
 <div><p><cite>./sfarm  0  -d results/stepXX   -p results/stepYY</cite></p>
 <p>where</p>
 </div></blockquote>
 <ul class="simple">
-<li><cite>results/stepXX</cite>: new directory where the current run will store data</li>
-<li><cite>results/stepYY</cite>: priors from which the current run will get guess parameters
-If the code seems to run, then it works</li>
+<li><p><cite>results/stepXX</cite>: new directory where the current run will store data</p></li>
+<li><p><cite>results/stepYY</cite>: priors from which the current run will get guess parameters
+If the code seems to run, then it works</p></li>
 </ul>
 </li>
-<li><p class="first">Send all the jobs to the farm</p>
+<li><p>Send all the jobs to the farm</p>
 <blockquote>
 <div><p>./sfarm  1  -d results/stepXX   -p results/stepYY</p>
 </div></blockquote>
 </li>
-<li><p class="first">To monitor the status you can just check the number of msr files you have
+<li><p>To monitor the status you can just check the number of msr files you have
 collected</p>
 <p><cite>watch -n 3 “ls results/stepXX/msr | wc -l”</cite></p>
 <p>you can use the following:</p>
@@ -286,11 +289,19 @@ collected</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, N. Sato
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -301,7 +312,6 @@ collected</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

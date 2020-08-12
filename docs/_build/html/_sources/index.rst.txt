@@ -8,9 +8,10 @@
 JAM ECOSYSTEM
 =============
 
-Codes that provides a framework to study nucleon structure and hadronization 
-in QCD. It provides the tools to extract QFT objects suchs as parton distribution 
-functons or fragmentation functions from experimental cross sections
+Program that provides a framework to study nucleon structure and hadronization
+in QCD. It provides the tools to extract QFT objects suchs as parton
+distribution functons or fragmentation functions from experimental cross
+sections
 
 .. toctree::
    :hidden:

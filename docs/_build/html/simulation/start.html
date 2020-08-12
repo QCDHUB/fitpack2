@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,28 +11,30 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Simulation" href="index.html" /> 
@@ -50,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> JAM
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> JAM
           
 
           
@@ -73,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -109,6 +111,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -147,7 +150,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="index.html">Simulation</a> &raquo;</li>
         
@@ -263,17 +266,17 @@ looks like this</p>
 <div class="section" id="basic-usage">
 <h3>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><strong>sim.get_xQ2_grid</strong>: this function generates the <code class="docutils literal notranslate"><span class="pre">X-Q2</span></code> grid.
-<strong>option=0</strong> for lhapdf like grid and <strong>option=1</strong> for custum grid.</li>
-<li><strong>sim.gen_idis_xlsx</strong>: this generates the corresponding xlsx file
-inside <code class="docutils literal notranslate"><span class="pre">&lt;wdir&gt;/sim/idx.xlsx</span></code></li>
-<li><strong>sim.gen_conf_idis</strong>: this adjust the <code class="docutils literal notranslate"><span class="pre">conf</span></code> dictionary to only
-use the xlsx file for the simulation</li>
-<li><strong>get_predictions</strong>: this will launch <code class="docutils literal notranslate"><span class="pre">resman</span></code> and compute the
-observables for all the replicas in <code class="docutils literal notranslate"><span class="pre">msr-inspected</span></code></li>
-<li><strong>update_idis_tabs</strong>: this will overwrite the previously generated
+<li><p><strong>sim.get_xQ2_grid</strong>: this function generates the <code class="docutils literal notranslate"><span class="pre">X-Q2</span></code> grid.
+<strong>option=0</strong> for lhapdf like grid and <strong>option=1</strong> for custum grid.</p></li>
+<li><p><strong>sim.gen_idis_xlsx</strong>: this generates the corresponding xlsx file
+inside <code class="docutils literal notranslate"><span class="pre">&lt;wdir&gt;/sim/idx.xlsx</span></code></p></li>
+<li><p><strong>sim.gen_conf_idis</strong>: this adjust the <code class="docutils literal notranslate"><span class="pre">conf</span></code> dictionary to only
+use the xlsx file for the simulation</p></li>
+<li><p><strong>get_predictions</strong>: this will launch <code class="docutils literal notranslate"><span class="pre">resman</span></code> and compute the
+observables for all the replicas in <code class="docutils literal notranslate"><span class="pre">msr-inspected</span></code></p></li>
+<li><p><strong>update_idis_tabs</strong>: this will overwrite the previously generated
 xlsx files to add numerical values for the observable
-(recall only one observable per table is allowed)</li>
+(recall only one observable per table is allowed)</p></li>
 </ul>
 </div>
 <div class="section" id="lhapdf">
@@ -281,10 +284,10 @@ xlsx files to add numerical values for the observable
 <p>If the simulated data is now needed to be converted into LHAPDF format we
 proceed to use the following routines</p>
 <ul class="simple">
-<li><strong>gen_lhapdf_dat_file</strong>: this will generate the tables in LHAPDF format</li>
-<li><strong>sim.gen_lhapdf_info_file</strong>: this will generate the info file which is
-required by the LHAPDF program to load the tables</li>
-<li><strong>sim.benchmark</strong>: as a sanity check we need to load the tables in lhapdf
+<li><p><strong>gen_lhapdf_dat_file</strong>: this will generate the tables in LHAPDF format</p></li>
+<li><p><strong>sim.gen_lhapdf_info_file</strong>: this will generate the info file which is
+required by the LHAPDF program to load the tables</p></li>
+<li><p><strong>sim.benchmark</strong>: as a sanity check we need to load the tables in lhapdf
 and compare for each <code class="docutils literal notranslate"><span class="pre">x-Q2</span></code> the true values and the interpolated values.
 The benchmark will create temporary symlinks at your lhapdf/share folder
 and upon completion it remove the symlinks. If you run into an error it
@@ -292,7 +295,7 @@ means you do not have permissions to write on lhapdf installation folder.
 i.e. you need to have your own lhapdf installation.
 The rutine will generate benchmark plots at
 <code class="docutils literal notranslate"><span class="pre">&lt;wdir&gt;/gallery/benchmark-&lt;name&gt;-idx.pdf</span></code>.
-You should see plot like this:</li>
+You should see plot like this:</p></li>
 </ul>
 <img alt="../_images/benchmark-JAM4EIC-90001.png" src="../_images/benchmark-JAM4EIC-90001.png" />
 <p>Make sure that the relative errors for your observables are small enough (~1e-3)
@@ -321,14 +324,14 @@ are the following</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><strong>iset</strong>: is the index associated with the lhapdf stfuncs tables
-generated before</li>
-<li><strong>iF2,iFL,iF3</strong>: are the flavor indices as specified in the previous steps</li>
-<li><strong>sim.get_xQ2_bins</strong>: this generates a dictionary of bins in x and Q2
-in log space.</li>
-<li><strong>gen_sim_idis_xlsx</strong>: this rouine will produce a an xlsx table
-with simulated statistical uncertainties.</li>
-<li><strong>sim.plot_kinematics</strong>: a simple routine to plot the generated kinematics</li>
+<li><p><strong>iset</strong>: is the index associated with the lhapdf stfuncs tables
+generated before</p></li>
+<li><p><strong>iF2,iFL,iF3</strong>: are the flavor indices as specified in the previous steps</p></li>
+<li><p><strong>sim.get_xQ2_bins</strong>: this generates a dictionary of bins in x and Q2
+in log space.</p></li>
+<li><p><strong>gen_sim_idis_xlsx</strong>: this rouine will produce a an xlsx table
+with simulated statistical uncertainties.</p></li>
+<li><p><strong>sim.plot_kinematics</strong>: a simple routine to plot the generated kinematics</p></li>
 </ul>
 <img alt="../_images/bins.png" src="../_images/bins.png" />
 </div>
@@ -353,11 +356,19 @@ with simulated statistical uncertainties.</li>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, N. Sato
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -368,7 +379,6 @@ with simulated statistical uncertainties.</li>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

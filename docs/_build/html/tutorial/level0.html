@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,28 +11,30 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="using the farm" href="farm.html" />
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> JAM
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> JAM
           
 
           
@@ -74,6 +75,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -113,6 +115,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -151,7 +154,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="index.html">Tutorial</a> &raquo;</li>
         
@@ -179,9 +182,9 @@
 <div class="section" id="objectives">
 <h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Fit unpolarized PDFs from world inclusive DIS data (<em>single fit</em>).</li>
-<li>Use the fitted parameters to compute PDFs and DIS observables</li>
-<li>Next steps</li>
+<li><p>Fit unpolarized PDFs from world inclusive DIS data (<em>single fit</em>).</p></li>
+<li><p>Use the fitted parameters to compute PDFs and DIS observables</p></li>
+<li><p>Next steps</p></li>
 </ol>
 </div>
 <div class="section" id="fit-unpolarized-pdfs">
@@ -197,8 +200,8 @@ jam/workspace/
 <p>In what follow we will create python scripts under <em>jam/workspace</em>.
 Specifically we will create two scripts</p>
 <ul class="simple">
-<li><strong>input.py</strong>: this specifies what to fit (datasets, pdfs, etc)</li>
-<li><strong>driver.py</strong>: this will controls the JAM machinery</li>
+<li><p><strong>input.py</strong>: this specifies what to fit (datasets, pdfs, etc)</p></li>
+<li><p><strong>driver.py</strong>: this will controls the JAM machinery</p></li>
 </ul>
 <div class="section" id="input-py">
 <h3>input.py<a class="headerlink" href="#input-py" title="Permalink to this headline">¶</a></h3>
@@ -331,9 +334,9 @@ accordingly</p>
 <p><cite>min</cite> and <cite>max</cite> determines the allowed ranges for the parameters to vary.
 The entry  <cite>fixed</cite> works as follow:</p>
 <ul class="simple">
-<li><strong>False</strong>: the parameter is free to vary</li>
-<li><strong>True</strong>: the parameter is fixed to the numerical value in entry  <cite>value</cite></li>
-<li><strong>other</strong>: the parameter is fixed to be the same as another parmeter that has that entry</li>
+<li><p><strong>False</strong>: the parameter is free to vary</p></li>
+<li><p><strong>True</strong>: the parameter is fixed to the numerical value in entry  <cite>value</cite></p></li>
+<li><p><strong>other</strong>: the parameter is fixed to be the same as another parmeter that has that entry</p></li>
 </ul>
 </div>
 <div class="section" id="driver-py">
@@ -376,9 +379,9 @@ the <cite>MAXLIKE</cite> class.</p>
 </div>
 <p>Comments:</p>
 <ul class="simple">
-<li><strong>Input</strong>: this is the path to the <cite>input.py</cite>.
-You can name the input file as with other name as needed.</li>
-<li><strong>ncores</strong>: physical cpu cores where the code will run in parallel.</li>
+<li><p><strong>Input</strong>: this is the path to the <cite>input.py</cite>.
+You can name the input file as with other name as needed.</p></li>
+<li><p><strong>ncores</strong>: physical cpu cores where the code will run in parallel.</p></li>
 </ul>
 <p>Add the execution block at the end</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -389,11 +392,11 @@ You can name the input file as with other name as needed.</li>
 <p>Run the script and the code should start the fitting process.
 Upon completion the code generates two files</p>
 <ul class="simple">
-<li><strong>output.py</strong>: This code is the same as the <cite>input.py</cite>,
+<li><p><strong>output.py</strong>: This code is the same as the <cite>input.py</cite>,
 but with the parameters of fit. You can run the fitting
 process again using the new input file and see that the chi2
-are already small.</li>
-<li><strong>summary</strong>: The chi2 summary of the fit.</li>
+are already small.</p></li>
+<li><p><strong>summary</strong>: The chi2 summary of the fit.</p></li>
 </ul>
 </div>
 </div>
@@ -453,8 +456,8 @@ parameters as
 <cite>nworkers=4</cite>, <cite>parallel=True</cite> and <cite>datasets=True</cite></p>
 <p>It is important that you reade the</p>
 <ul class="simple">
-<li><cite>fitpack/fitlib/resman.py</cite></li>
-<li><cite>fitpack/fitlib/parman.py</cite>.</li>
+<li><p><cite>fitpack/fitlib/resman.py</cite></p></li>
+<li><p><cite>fitpack/fitlib/parman.py</cite>.</p></li>
 </ul>
 <p>where Abehind the scenes all the setups occur when loading
 the class <cite>RESMAN</cite></p>
@@ -530,30 +533,33 @@ value of <span class="math notranslate nohighlight">\(Q^2\)</span></p>
 <p>Before engauging with more complicated setups, here we provide
 some homework.</p>
 <ul class="simple">
-<li>Cross sections, structure function level.<ul>
-<li>Plot <span class="math notranslate nohighlight">\(F_2^p\)</span> as a function of <span class="math notranslate nohighlight">\(Q^2\)</span> for fixed values
+<li><p>Cross sections, structure function level.</p>
+<ul>
+<li><p>Plot <span class="math notranslate nohighlight">\(F_2^p\)</span> as a function of <span class="math notranslate nohighlight">\(Q^2\)</span> for fixed values
 <span class="math notranslate nohighlight">\(x\)</span>. Do you see scaling? Hint: try to tap into
 the method <cite>get_FXN</cite> that is defined at <cite>fitpack/obslib/idis/theory.py</cite>.
-This can be accessed by an entry in the <cite>conf</cite> after loading <cite>RESMAN</cite></li>
-<li>Make data vs theory for one of the datasets e.g. SLACp. See how good
-is the agreement.</li>
-<li>Decrease the <span class="math notranslate nohighlight">\(W^2_{\rm cut}\)</span> in the input file and see how good
+This can be accessed by an entry in the <cite>conf</cite> after loading <cite>RESMAN</cite></p></li>
+<li><p>Make data vs theory for one of the datasets e.g. SLACp. See how good
+is the agreement.</p></li>
+<li><p>Decrease the <span class="math notranslate nohighlight">\(W^2_{\rm cut}\)</span> in the input file and see how good
 or bad is the agreement in predicting kinematic regions where the data
-was not included. Do you understand what is going on physically ?</li>
+was not included. Do you understand what is going on physically ?</p></li>
 </ul>
 </li>
-<li>Plots at the pdf level<ul>
-<li>Make plots for pdfs. Try to show plot different flavors at different scales.
-See if the PDF looks like those found at <a class="reference external" href="https://inspirehep.net/record/1734309">https://inspirehep.net/record/1734309</a></li>
-<li>Compute the momentum sum rule and show that is scale independent.</li>
-<li>Compute the quark sum rules and show that they are also scale independet.</li>
+<li><p>Plots at the pdf level</p>
+<ul>
+<li><p>Make plots for pdfs. Try to show plot different flavors at different scales.
+See if the PDF looks like those found at <a class="reference external" href="https://inspirehep.net/record/1734309">https://inspirehep.net/record/1734309</a></p></li>
+<li><p>Compute the momentum sum rule and show that is scale independent.</p></li>
+<li><p>Compute the quark sum rules and show that they are also scale independet.</p></li>
 </ul>
 </li>
-<li>Changing the parametrizarion<ul>
-<li>Create a new pdfX.py script using the pdf2.py as a template and try to change
+<li><p>Changing the parametrizarion</p>
+<ul>
+<li><p>Create a new pdfX.py script using the pdf2.py as a template and try to change
 the parametrization and make new fits.
 Hints: You will have to addapt the <cite>input.py</cite>, <cite>paraman.py</cite>
-and <cite>resman.py</cite> accordingly.</li>
+and <cite>resman.py</cite> accordingly.</p></li>
 </ul>
 </li>
 </ul>
@@ -580,11 +586,19 @@ and <cite>resman.py</cite> accordingly.</li>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, N. Sato
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -595,7 +609,6 @@ and <cite>resman.py</cite> accordingly.</li>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

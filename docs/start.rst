@@ -5,24 +5,97 @@ dependencies
 ------------
 
 - Only Linux and OSX is supported
+- We recommend to install anaconda (python3) 
 
-- We recommend to install anaconda (python2) which 
-  comes will all the necessary libraries
+installation
+------------
 
-
-clonning the fipack repo
-------------------------
-
-Go to https://github.com/JeffersonLab/fitpack
-and fork the repository under your GitHub account 
-and clone your forked fitpack repo 
+1. Create and activate a new python enviroment
 
 .. code-block:: shell
 
-  git clone  git@github.com:<your-username>/fitpack.git
+   conda create --name  jam  python=3.6 
+   conda activate jam
+
+2. Clone the fitpack repository
+
+.. code-block:: shell
+
+   git clone  git@github.com:QCDHUB/fitpack2
+   cd fitpack2
+
+3. Install dependencies on your enviroment
+
+.. code-block:: shell
+
+   pip install -r deps
+
+4. Install core and default libraries
+
+.. code-block:: shell
+
+   ./pacman.py install
+
+Additional repos for observables can be installed by 
+adjusting the file ``repos.tex``. Also to updates on all 
+repos can be done via
+
+.. code-block:: shell
+
+   ./pacman.py update
+
+
+setups
+------
+
+Some environmental variables  need to be set. For csh 
+
+.. code-block:: shell
+
+   setenv FITPACK $PWD
+   setenv PATH ${FITPACK}/bin:${PATH}
+   setenv PYTHONPATH ${FITPACK}
+
+For bash
+
+.. code-block:: shell
+
+   path=`pwd`
+   export FITPACK=$path
+   export PATH=$FITPACK/bin:$PATH
+   export PYTHONPATH=$FITPACK:$PYTHONPATH
+
+Alternatively source the setup file ``fitpack2/setup.sh`` or 
+``fitpack2/setup.csh``
+
+.. code-block:: shell
+
+   source setup.sh
+
+To test the installation do 
+
+.. code-block:: shell
+
+   cd fitlib
+   ./driver.py 
+
+
+Alternative installation
+------------------------
+
+The following repos can only be modified 
+via pull request. 
+
+- fitlib
+- tools
+
+You can forked them into your account 
+and before running ``./pacman.py install``
+replace ``QCDHUB`` by your github username
+in order to clone from you account.
 
 To update your fork with recent changes at the fitpack upstream 
-you need to do the following 
+you need to do the following within fitlib and tools  
 
 .. code-block:: shell
 
@@ -36,111 +109,12 @@ This is done only once. After that you can sync the fork using
    git pull upstream master
 
 
-The fipack repository contains a minimalize version 
-of the full program. The program needs to be extended
-by cloning additional repos. To do that open the file 
-``sync`` and uncomment the repos you are interested 
-in having for a particular application. 
-We have separated themaccording to 
-
-- **root**: repos that a located at the root of the fitpack 
-
-- **obslib**: collection of obserables 
-
-- **grids**: mellin table grids for the observables
-
-After chosing which repos you want to be installed, 
-run the script ``sync``
-
-.. code-block:: shell
-
-  ./sync
-
-This will clone only the repos that you have specified 
-in the ``sync`` file. If you want to pull all the sub
-repos, just run the sync script again and all the repos
-will be updated.  
-
-In addition, we recomment to not track the subrepos as
-``submodules``. To avoid seen in the ``status`` output 
-the changes on the submodules, use the lines ``git restore``.
-
-
-You will  still see the untracked files
-
-.. code-block:: shell
-
-   Untracked files:
-     (use "git add <file>..." to include in what will be committed)
-           .gitmodules
-           database/
-           grids/
-           nuclib/
-           obslib/
-
-but that is the normal behviour. 
-
-Typically scripts such as those under fitlib, qcdlib, tools 
-are typically modified independently by the user for testing/developing purposes 
-(like adding print statements, etc). In some situation, generic 
-features are needed to be added in those scripts. When that happen 
-you can request a `pull request` using the GitHub system. 
-The  fitpack admin will review the changes and evaluate if such changes 
-can be incorporated under the master fitpack repo.
-
-
-setups and checks
------------------
-
-Some environmental variables  need to be set. For csh add the following
-lines on your `$HOME/.cshrc` 
-
-.. code-block:: shell
-
-   setenv FITPACK <path2>/fitpack
-   setenv PYTHONPATH ${FITPACK}:${PYTHONPATH}
-   setenv PATH ${FITPACK}/bin:${PATH}
-
-and something analogous for bash.
-To test if the JAM ecosystem is working, go to  fitlib and run 
-
-.. code-block:: shell
-
-  ./resman.py
-
-If it crashes most likely some missing packges to be install via pip are 
-needed 
-
-.. code-block:: shell
-
-  pip install <missing-package>
-
-
-Notes
------
-
-- Each subrepois an independent repo. Once you clone the entire ecosystem
-  you can go to each submodule and do pull/push.
-
-- Single fits or MC runs should be made under a directory like workspace
-
-The workspace 
--------------
-
-- Use the `fitpack/workspace` directory as a template to start a new analysis from 
-  scratch.
-
-- `fitpack/workspace` is just a template, hence do not pull request any 
-   changes on it.
-
-- Instead, create a copy of such folder elsewere  or ask the mananger to create 
-  a repo under JeffersonLab/JAM team
-
-
 Next steps
 ----------
 
 Checkout the tutorials
+
+
 
 
 

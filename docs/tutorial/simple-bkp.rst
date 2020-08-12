@@ -1,5 +1,5 @@
-Level 0: from scratch 
-=====================
+Simple 
+======
 
 Objectives 
 ----------

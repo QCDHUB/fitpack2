@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Level 0: from scratch" href="level0.html" />
+    <link rel="next" title="Simple" href="simple.html" />
     <link rel="prev" title="Gettin Started" href="../start.html" /> 
 </head>
 
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> JAM
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> JAM
           
 
           
@@ -74,6 +75,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -89,9 +91,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Gettin Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="level0.html">Level 0: from scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="farm.html">using the farm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analysis.html">Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#short-summary">Short summary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="simple.html">Simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html">Analysis (OUTDATED)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../input.html">Input file</a></li>
@@ -103,6 +107,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -141,7 +146,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Tutorial</li>
     
@@ -166,13 +171,32 @@
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
+<div class="section" id="short-summary">
+<h2>Short summary<a class="headerlink" href="#short-summary" title="Permalink to this headline">¶</a></h2>
+<p>The repositories inside fitpack are organized as follow</p>
+<ul class="simple">
+<li><p><strong>qcdlib</strong>: collection of script to solve QCD RGE equations such as running of strong coupling, DGLAP and TMD evoltion.</p></li>
+<li><p><strong>database</strong>: collection of excel spreed sheets for experimental data from differentfacilities and different reactions.</p></li>
+<li><p><strong>obslib</strong>: collection of subrepos containing dedicated scripts to compute observables. Typically these repos contain:</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="level0.html">Level 0: from scratch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="farm.html">using the farm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
+<li><p><strong>theory.py</strong>: a script to compute theoretical observables</p></li>
+<li><p><strong>reader.py</strong>: a script to load the excel files containing expermental observables from the database</p></li>
+<li><p><strong>residuals.py</strong>: a script to compute the residuals</p></li>
 </ul>
+</li>
+<li><p><strong>fitlib</strong>: collection of scripts to carry out chi-square miminization as well as MC sampling</p></li>
+<li><p><strong>tools</strong>: dedicated scripts including base codes for reader, residuals as well as other utilities suchs as parallelization, code loading. The script <code class="docutils literal notranslate"><span class="pre">config</span></code> place an important role (see below).</p></li>
+<li><p><strong>analysis</strong>: dedicated scripts to analyze the fits including a collection of plotting routines as well as simulation routines</p></li>
+<li><p><strong>nuclib</strong>: a repository with nuclear smearing tables needed for nuclear reactions</p></li>
+<li><p><strong>grids</strong>: a collection of subrepos for tabulated mellin grids</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simple.html">Simple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis (OUTDATED)</a></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -184,7 +208,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="level0.html" class="btn btn-neutral float-right" title="Level 0: from scratch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="simple.html" class="btn btn-neutral float-right" title="Simple" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../start.html" class="btn btn-neutral float-left" title="Gettin Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -196,11 +220,19 @@
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, N. Sato
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -211,7 +243,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
